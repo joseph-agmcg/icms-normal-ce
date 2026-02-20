@@ -24,6 +24,9 @@ build/
 *.swp
 *.swo
 
+# Planilhas
+*.xlsx
+
 # Playwright
 playwright-report/
 test-results/
