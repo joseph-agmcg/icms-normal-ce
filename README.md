@@ -23,7 +23,7 @@ A automação replica esse fluxo por I.E., preenchendo os campos a partir do Exc
 
 Quando aplicável, vídeo do processo manual para referência futura:
 
-- **[Link do vídeo do processo manual](#)** *(adicionar URL aqui)*
+- **[Link do vídeo do processo manual](https://drive.google.com/file/d/1LN_sLWcaVUN4Nn3CYWAsQj0zTn1dEnVV/view?usp=sharing)**
 
 ---
 
@@ -39,6 +39,7 @@ Quando aplicável, vídeo do processo manual para referência futura:
 - Enviar o formulário (clique no botão de cadastro após preenchimento).
 - Download automático do PDF da guia DAE gerada.
 - Renomeação automática do arquivo no padrão: `DAE ICMS NORMAL {inscrição estadual} REF {competência}` (ex.: `DAE ICMS NORMAL 062586416 REF 012026`).
+- Empacotar toda a automação em um executável (ex.: PyInstaller/Nuitka) para distribuição sem exigir instalação de Python.
 
 ---
 
