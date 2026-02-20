@@ -1,12 +1,12 @@
 # ICMS Normal - Ceará
 
-Automação com **Playwright (Python assíncrono)**
+Automação com **Playwright (Python assíncrono)** para o portal DAE da SEFAZ-CE. Interface gráfica para carregar Excel de filiais e executar o fluxo em lote por I.E.
 
 ---
 
 ## Passo a passo do processo manual que a automação substitui
 
-1. Acessar no navegador o portal da SEFAZ-CE (`https://servicos.sefaz.ce.gov.br/internet/dae/aplic/default.asp`).
+1. Acessar no navegador o portal DAE da SEFAZ-CE (`https://servicos.sefaz.ce.gov.br/internet/dae/aplic/default.asp`).
 2. Informar a Inscrição Estadual (I.E.) no campo e clicar em **Avançar**.
 3. Na tela de seleção de receita, escolher **1015 - ICMS Regime Mensal de Apuração** e clicar em **Preencher DAE**.
 4. No formulário DAE, preencher período de referência (mês/ano), data de pagamento (ex.: dia 20), valor principal e, quando houver, o CAPTCHA.
@@ -29,7 +29,7 @@ Quando aplicável, vídeo do processo manual para referência futura:
 
 ## O que a automação faz
 
-- Acessa o portal da SEFAZ-CE (página inicial `default.asp`).
+- Acessa o portal DAE da SEFAZ-CE (página inicial `default.asp`).
 - Para cada I.E. da planilha: preenche I.E. e Avançar, seleciona receita **1015 (ICMS Regime Mensal)**, clica em **Preencher DAE** e preenche o formulário (período, valor, data de pagamento). Resolução do CAPTCHA via Anti-Captcha (chave no `.env`).
 - Permite carregar um Excel de filiais (coluna I.E. = INSC.ESTADUAL ou sinônimos), visualizar os dados extraídos e rodar o fluxo em lote para todas as I.E.
 - Em erro: registra log e salva screenshot na pasta de erros configurada.
@@ -42,6 +42,25 @@ Quando aplicável, vídeo do processo manual para referência futura:
 - Empacotar toda a automação em um executável (ex.: PyInstaller/Nuitka) para distribuição sem exigir instalação de Python.
 
 ---
+
+## Regras de negócio
+
+### Contexto
+
+- **DAE** = Documento de Arrecadação Estadual: é a guia de pagamento que a empresa usa para pagar tributos no Ceará (como o ICMS).
+- **ICMS Regime Mensal (1015)** = imposto mensal que empresas no regime normal de apuração precisam declarar e pagar à SEFAZ-CE.
+- Na prática, quem tem várias **filiais** (cada uma com uma Inscrição Estadual — I.E.) precisa gerar **uma DAE por filial**, todo mês, no portal da SEFAZ-CE.
+
+### O que o bot faz na prática
+
+- Você já tem uma **planilha Excel** de apuração de ICMS (típica de “APURAÇÃO DE ICMS CEARÁ”) com as filiais, o período (mês/ano) e o **valor a pagar** (coluna TOTAL) de cada uma.
+- O bot **lê essa planilha** e, para cada filial que tem valor a pagar:
+  - Acessa o portal DAE da SEFAZ-CE.
+  - Informa a I.E. da filial e avança.
+  - Escolhe a receita **1015 – ICMS Regime Mensal** e abre o formulário de “Preencher DAE”.
+  - Preenche **período de referência** (mês/ano da planilha), **data de pagamento** (ex.: dia 20 do mês seguinte) e **valor principal** (o valor TOTAL da planilha).
+  - Quando o site pedir a verificação de imagem (aquela “prova” que você não é robô), o bot resolve automaticamente.
+- Ou seja: o bot **replica no site** o que está na planilha, filial a filial, sem você precisar digitar cada I.E. e cada valor manualmente.
 
 ## Dependências
 
