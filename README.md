@@ -1,4 +1,4 @@
-# sefaz_ce
+# ICMS Normal - Ceará
 
 Automação com **Playwright (Python assíncrono)** para o portal DAE da SEFAZ-CE. Interface gráfica para carregar Excel de filiais e executar o fluxo em lote por I.E.
 
