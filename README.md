@@ -6,7 +6,7 @@ Automação com **Playwright (Python assíncrono)**
 
 ## Passo a passo do processo manual que a automação substitui
 
-1. Acessar no navegador o portal DAE da SEFAZ-CE (`https://servicos.sefaz.ce.gov.br/internet/dae/aplic/default.asp`).
+1. Acessar no navegador o portal da SEFAZ-CE (`https://servicos.sefaz.ce.gov.br/internet/dae/aplic/default.asp`).
 2. Informar a Inscrição Estadual (I.E.) no campo e clicar em **Avançar**.
 3. Na tela de seleção de receita, escolher **1015 - ICMS Regime Mensal de Apuração** e clicar em **Preencher DAE**.
 4. No formulário DAE, preencher período de referência (mês/ano), data de pagamento (ex.: dia 20), valor principal e, quando houver, o CAPTCHA.
@@ -29,7 +29,7 @@ Quando aplicável, vídeo do processo manual para referência futura:
 
 ## O que a automação faz
 
-- Acessa o portal DAE da SEFAZ-CE (página inicial `default.asp`).
+- Acessa o portal da SEFAZ-CE (página inicial `default.asp`).
 - Para cada I.E. da planilha: preenche I.E. e Avançar, seleciona receita **1015 (ICMS Regime Mensal)**, clica em **Preencher DAE** e preenche o formulário (período, valor, data de pagamento). Resolução do CAPTCHA via Anti-Captcha (chave no `.env`).
 - Permite carregar um Excel de filiais (coluna I.E. = INSC.ESTADUAL ou sinônimos), visualizar os dados extraídos e rodar o fluxo em lote para todas as I.E.
 - Em erro: registra log e salva screenshot na pasta de erros configurada.
