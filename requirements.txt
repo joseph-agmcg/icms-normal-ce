@@ -1,0 +1,5 @@
+anticaptchaofficial>=1.0.69
+customtkinter>=5.2.2
+openpyxl>=3.1.0
+playwright>=1.56.0
+python-dotenv>=1.0.0

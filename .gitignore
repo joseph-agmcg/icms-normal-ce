@@ -1,0 +1,30 @@
+# Ambiente e credenciais
+.env
+.venv/
+venv/
+env/
+
+# Logs e saídas
+logs/
+*.log
+resultados/
+capturas_erros/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Playwright
+playwright-report/
+test-results/
+.playwright/
