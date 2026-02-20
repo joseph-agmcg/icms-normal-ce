@@ -27,6 +27,14 @@ Quando aplicável, vídeo do processo manual para referência futura:
 
 ---
 
+## Vídeo da automação funcionando
+
+Vídeo mostrando o bot em execução (carregando Excel, preenchendo o portal e rodando em lote):
+
+- **[Link do vídeo da automação funcionando](https://drive.google.com/file/d/1QSBEYWjRl9WtPvcf_JyRoqI-S6g6A7Q5/view?usp=sharing)**
+
+---
+
 ## O que a automação faz
 
 - Acessa o portal DAE da SEFAZ-CE (página inicial `default.asp`).
